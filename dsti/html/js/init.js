@@ -320,14 +320,19 @@ function grax_tm_hero_title_fade(){
 // -----------------------------------------------------
 
 function grax_tm_my_load(){
-	
 	"use strict";
-	
+
+	// 바로 컨텐츠가 보이도록 즉시 실행
 	grax_tm_my_waypoint();
-	setTimeout(function(){grax_tm_preloader();},1000);
-	setTimeout(function(){grax_tm_hero_title_fade();},3000);
+	// 필요하지 않다면 아래 함수 호출들을 제거하거나 주석 처리하세요.
+	// grax_tm_preloader();
+	// grax_tm_hero_title_fade();
 }
 
+// 윈도우 로드 이벤트 대신 문서 준비 시 바로 실행 (또는 아예 삭제)
+jQuery(document).ready(function(){
+	grax_tm_my_load();
+});
 // -----------------------------------------------------
 // ------------------   WAVIFY   -----------------------
 // -----------------------------------------------------
